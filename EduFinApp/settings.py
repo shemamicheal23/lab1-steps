@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Local apps
     'core.apps.CoreConfig',
     'accounts',
+    'transactions',
     # Third-party
     'rest_framework',
 ]

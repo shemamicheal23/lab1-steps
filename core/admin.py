@@ -1,3 +1,7 @@
 from django.contrib import admin
+from core.models import Testing
 
-# Register your models here.
+
+@admin.register(Testing)
+class TestingAdmin(admin.ModelAdmin):
+	list_display = ('id', 'name', 'created_at')
