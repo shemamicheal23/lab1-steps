@@ -1,0 +1,116 @@
+# --- REST API Tests for EduFinApp ---
+# Requires "humao.rest-client" VSCode Extension
+# Tip: Click "Send Request" above any request block to execute it!
+
+@baseUrl = http://127.0.0.1:8000/api
+
+
+### ----------------------------------------------------
+### TRANSACTIONS API 
+### ----------------------------------------------------
+
+### GET: List all transactions
+GET {{baseUrl}}/transactions/
+
+
+### POST: Create a new transaction
+POST {{baseUrl}}/transactions/
+Content-Type: application/json
+
+{
+    "title": "Grocery Shopping",
+    "amount": "45.99",
+    "transaction_type": "expense",
+    "category": "Food",
+    "date": "2026-03-12"
+}
+
+
+### GET: Get a single transaction (Change ID as needed)
+GET {{baseUrl}}/transactions/1/
+
+
+### PUT: Update a specific transaction (Change ID as needed)
+PUT {{baseUrl}}/transactions/1/
+Content-Type: application/json
+
+{
+    "title": "Weekly Groceries",
+    "amount": "52.00",
+    "transaction_type": "expense",
+    "category": "Food",
+    "date": "2026-03-12"
+}
+
+
+### DELETE: Delete a transaction (Change ID as needed)
+DELETE {{baseUrl}}/transactions/1/
+
+
+### POST: Test Validation (Fails due to negative amount)
+POST {{baseUrl}}/transactions/
+Content-Type: application/json
+
+{
+    "title": "Bad Transaction",
+    "amount": "-10.00",
+    "transaction_type": "expense",
+    "date": "2026-03-12"
+}
+
+
+
+### ----------------------------------------------------
+### CATEGORIES API (Capstone Challenge)
+### ----------------------------------------------------
+
+### GET: List all categories
+GET {{baseUrl}}/categories/
+
+
+### POST: Create a new category
+POST {{baseUrl}}/categories/
+Content-Type: application/json
+
+{
+    "name": "Entertainment",
+    "description": "Movies, games, and fun stuff"
+}
+
+
+### GET: Get a single category
+GET {{baseUrl}}/categories/1/
+
+
+### PUT: Update a categoriy
+PUT {{baseUrl}}/categories/1/
+Content-Type: application/json
+
+{
+    "name": "Entertainment",
+    "description": "Movies, games, streaming services, and fun stuff"
+}
+
+
+### DELETE: Delete a category
+DELETE {{baseUrl}}/categories/1/
+
+
+
+### ----------------------------------------------------
+### BUDGETS API (Challenge 1)
+### ----------------------------------------------------
+
+### GET: List all budgets
+GET {{baseUrl}}/budgets/
+
+
+### POST: Create a new budget
+POST {{baseUrl}}/budgets/
+Content-Type: application/json
+
+{
+    "name": "March Groceries",
+    "limit_amount": "300.00",
+    "month": "2026-03-01"
+}
